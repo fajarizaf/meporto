@@ -15,22 +15,6 @@ function Timeline() {
         <div classNameName="timeline">
             <div className="outer">
 
-                <div className="card">
-                    <div className="info">
-                        <h3 className="title">PT. Exabytes Network Indonesia</h3>
-                        <p className='title-work'>Assistant Manager RnD Division ( 2020 - 2021 )</p>
-                        <p style={styles.p}>
-                        PT. Masterweb was acquired by Exabytes, and in this company I joined the Research and Development division, 
-                        but still did the hard coding routine. my responsibility is on the main platform in the company itself which 
-                        is used by internal employees and customers, my main focus is more on the development of internal products 
-                        and operational systems that are run for the company's internal needs together with my team of 2 people.
-                        </p>
-                        <ul>
-                            <li>For the operational system itself, one example of a billing system for hosting management used by all divisions, both finance, cso, technical support, etc.</li>
-                            <li>For internal products, one of them is the Web Builder product which is bundled with hosting and domains.</li>
-                        </ul>
-                    </div>
-                </div>
 
                 <div className="card">
                     <div className="info">
@@ -53,39 +37,13 @@ function Timeline() {
 
                 <div className="card">
                     <div className="info">
-                        <h3 className="title">PT. Masterweb Network</h3>
-                        <p className='title-work'>Junior Research And Development ( 2017 - 2020 )</p>
+                        <h3 className="title">PT. Epoxyndo Arta Lestari</h3>
+                        <p className='title-work'>Graphic Designer ( 2014 - 2017 )</p>
                         <p style={styles.p}>
-                        After I joined this Research And Development division, I was given a good opportunity to grow and learn, 
-                        participate in helping the company's internal platform and product development, collaborate with supervisor and CTO 
-                        to create addons modules for the main platform.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="card">
-                    <div className="info">
-                        <h3 className="title">PT. Masterweb Network</h3>
-                        <p className='title-work'>Web Developer ( 2015 - 2017 )</p>
-                        <p style={styles.p}>
-                        At Masterweb itself, we have website development services that are full of customization both systems 
-                        and designs whose needs follow the wishes of the client and in this position I have new challenges and 
-                        new tasks and responsibilities to handle and work on full website customization projects and hold 
-                        meetings with clients to discuss concepts and flows. required system
-                        </p>
-                    </div>
-                </div>
-
-                <div className="card">
-                    <div className="info">
-                        <h3 className="title">PT. Masterweb Network</h3>
-                        <p className='title-work'>Web Designer ( 2013 - 2015 )</p>
-                        <p style={styles.p}>
-                        Joining the Number one of Web Hosting company in Indonesia gave me new opportunities and experiences 
-                        in the IT world, my duties and responsibilities as a web designer because apart from hard coding 
-                        I also have the ability to design both websites and others. at masterweb itself has website 
-                        creation services that are full of display customization that are suitable for the needs 
-                        of the company's web profile.
+                        Starting from an interest in art that led me to study design and switch to digital, 
+                        I joined this company as a designer whose duties and functions are to create design 
+                        content for company marketing needs such as flyer design, brochures, banners, x banners 
+                        and others. This company is a non retail (B2B) epoxy paint company.
                         </p>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ function Header() {
                 <div className="menu">
                     <Link className="logo" to="/">Fajar Riza Fauzi</Link>
                     <Link className="item" to="/Showcase" style={styles.itm}>Showcase</Link>
-                    <Link className="item" to="#" onClick={() => toLink('https://penulis.site')} style={styles.itm}>Post</Link>
+                    <Link className="item" to="#" onClick={() => toLink('http://www.penulis.site')} style={styles.itm}>Post</Link>
                     <Link className="item" to="#" onClick={() => toLink('https://github.com/fajarizaf?tab=repositories')} style={styles.itm}>
                     <FontAwesomeIcon icon={faGithub} style={styles.git} />
                         Sources
