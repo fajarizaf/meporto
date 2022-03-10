@@ -1,0 +1,16 @@
+
+.box-center-1 {
+    margin-left:auto;
+    margin-right:auto;
+    width: 400px;
+    padding-bottom: 100px;
+    margin-top:50px;
+}
+
+
+.box-flex-between {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}

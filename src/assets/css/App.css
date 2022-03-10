@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+.root {
+  padding:0px;
+  margin:0px;
+}
+
+body {
+  background-color:#f7fafc;
+  margin:0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.container {
+  width:100%;
+  height:100vh;
+  margin:0px auto;
+  display: flex;
+  flex:1;
+}
+
+.main {
+  margin-left:auto;
+  margin-right:auto;
+  width: 800px;
+  max-width: 700px;
+}
+
+.carding {
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+  vertical-align: center;
+  height: 300px;
+  overflow: hidden;
+  margin-top:25px;
+}
+
+.row {
+  padding:5px;
+  vertical-align: center;
+}
+
+.logo {
+  color:#000;
+  font-family: 'Poppins';
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 24px;
+  vertical-align: middle;
+  margin-right:25px;
+}
+
+.cards {
+  display: flex;
+  vertical-align: center;
+  margin-bottom:60px;
+}
+
+.card2 {
+  background: rgb(236, 158, 11) none repeat scroll 0% 0%;
+  border:1px solid #c06107;
+  overflow: hidden;
+  border-radius: 6px;
+  width:48%;
+  color:#000;
+}
+
+.card2 > .hcard {
+  padding-top:5px;
+  padding-bottom:5px;
+  border-bottom: 1px solid #c06107;
+  background: rgb(236, 158, 11) none repeat scroll 0% 0%;
+  text-align: center;
+}
+
+.card2 > .hcard > p {
+  font-weight: 500;
+  color:#000;
+}
+
+.card2 > ol {
+  padding-right: 20px;
+}
+
+.card2 > ol li {
+  color:#000
+}
+
+.header {
+  margin:0;
+  height: 100px;
+  background-color:#d99109 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  margin:0;
+  height: 300px;
+  background-color:#d99109 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  float:left;
+}
+
+.item {
+  padding-left:10px;
+  padding-right:10px;
+  font-family: 'Poppins';
+  text-decoration: none;
+  color:#2d3748;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.panel {
+  float:right;
+  width:30%;
+}
+
+
+.divider {
+  padding:10px;
+  width: 100%;
+}
+
+.postitem {
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.datepost {
+  font-family: 'Poppins';
+  font-size: 1rem;
+  margin-bottom:-25px;
+  color:#2d3748;
+}
+
+.adminlist {
+  display: flex;
+  flex-direction: row;
+  border:2px dashed #c8ced9;
+  border-radius: 6px;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.btn-1 {
+  background-color: #fff;
+  color:#2d3748;
+  border:1px solid #4a5568;
+  margin-top:10px;
+  margin-bottom: 10px;;
+}
+
+.btn-2 {
+  margin-top:20px;
+  margin-bottom: 10px;;
+}
+
+.btnActions {
+  position: fixed;
+  bottom: 0px;
+  right:70px;
+  margin:30px;
+}
+
+.btn {
+  bottom: 0px;
+  right:0px;
+  margin:0px;
+  border-radius: 36px;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  margin: 0px;
+  width:100%;
+}
+
+
+
+.btnsettingPost {
+  position: fixed;
+  bottom: 0px;
+  right:0px;
+  margin:30px;
+}
+
+
+.avatar {
+  width:160px;
+  height:160px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+}
+
+div {
+  outline: none;
+}
+
+.profilePicture {
+  border-radius: 50%;
+  width:60px;
+  margin-left: 15px;
+}
+
+.statusProfile {
+  padding-top: 7px;
+  text-align: right;
+}
+
+.box-nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+
