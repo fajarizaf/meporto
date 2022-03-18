@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import CardBio from "./components/CardBio"
 import Slide from "./components/Slide"
 import Student from "./components/Student"
-import Timeline from "./components/Timeline"
+import Timeline from "./components/Timelines"
 
 function Home() {
     return(
