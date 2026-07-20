@@ -38,12 +38,13 @@ export default async function handler(req, res) {
   if (method === 'POST') {
     try {
       const { fields, files } = await parseMultipart(req);
-      const title = fields.title?.[0];
-      const description = fields.description?.[0];
-      const link = fields.link?.[0] || '';
-      const linkType = fields.linkType?.[0] || 'github';
-      const demoUrl = fields.demoUrl?.[0] || '';
-      const features = fields.features?.[0] || '';
+      const get = (v) => Array.isArray(v) ? v[0] : v;
+      const title = get(fields.title);
+      const description = get(fields.description);
+      const link = get(fields.link) || '';
+      const linkType = get(fields.linkType) || 'github';
+      const demoUrl = get(fields.demoUrl) || '';
+      const features = get(fields.features) || '';
 
       if (!title || !description) {
         return res.status(400).json({ error: 'Title dan description wajib diisi' });
