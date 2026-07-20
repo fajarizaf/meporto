@@ -1,4 +1,5 @@
-import { kv } from '@vercel/kv';
+import { readData, writeData } from './_lib/blob-db.js';
+import { del } from '@vercel/blob';
 
 const SEED_DATA = [
   {
@@ -28,7 +29,7 @@ const SEED_DATA = [
   {
     "id": "377e07e8-c512-412a-a9db-5781e8e152af",
     "title": "Dashboard Uninet",
-    "description": "DashUninet adalah portal back-office CRM/ERP terintegrasi untuk pengelolaan layanan internet PT. Uninet Media Sakti. Aplikasi ini mengelola siklus hidup pelanggan lengkap mulai dari leads penjualan, order, aktivasi langganan (otomatis via Mikrotik RouterOS), penagihan invoice, hingga support ticket.",
+    "description": "DashUninet adalah portal back-office CRM/ERP terintegrasi untuk pengelolaan layanan internet PT. Uninet Media Sakti.",
     "image": "",
     "link": "https://github.com/fajarizaf/dashuninet",
     "linkType": "github",
@@ -40,7 +41,7 @@ const SEED_DATA = [
   {
     "id": "41c7843b-0e79-4a88-a702-3ecbf23fb2e7",
     "title": "Peta Sebaran Unras",
-    "description": "Aplikasi monitoring dan visualisasi data unjuk rasa (demonstrasi) di seluruh provinsi Indonesia. Aplikasi ini menyediakan peta interaktif, dashboard statistik, dan panel admin untuk mengelola data aksi massa.",
+    "description": "Aplikasi monitoring dan visualisasi data unjuk rasa di seluruh provinsi Indonesia dengan peta interaktif.",
     "image": "",
     "link": "https://github.com/fajarizaf/aksi-demo",
     "linkType": "github",
@@ -119,31 +120,27 @@ export default async function handler(req, res) {
   try {
     const { action } = req.query;
 
-    if (action === 'seed') {
-      const existingData = await kv.get('showcases');
-      if (existingData && existingData.length > 0) {
-        return res.status(200).json({
-          message: 'Data sudah ada',
-          count: existingData.length
-        });
-      }
-
-      await kv.set('showcases', SEED_DATA);
-      return res.status(200).json({
-        message: 'Seed data berhasil',
-        count: SEED_DATA.length
-      });
-    }
-
     if (action === 'reset') {
-      await kv.set('showcases', SEED_DATA);
+      await writeData(SEED_DATA);
       return res.status(200).json({
         message: 'Data berhasil direset',
         count: SEED_DATA.length
       });
     }
 
-    return res.status(400).json({ error: 'Invalid action. Use ?action=seed or ?action=reset' });
+    const existingData = await readData();
+    if (existingData.length > 0) {
+      return res.status(200).json({
+        message: 'Data sudah ada',
+        count: existingData.length
+      });
+    }
+
+    await writeData(SEED_DATA);
+    return res.status(200).json({
+      message: 'Seed data berhasil',
+      count: SEED_DATA.length
+    });
   } catch (error) {
     console.error('Seed error:', error);
     return res.status(500).json({ error: 'Gagal melakukan seed data' });

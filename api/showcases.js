@@ -1,7 +1,7 @@
-import { kv } from '@vercel/kv';
 import { put } from '@vercel/blob';
 import { v4 as uuidv4 } from 'uuid';
 import { IncomingForm } from 'formidable';
+import { readData, writeData } from './_lib/blob-db.js';
 
 export const config = {
   api: {
@@ -15,7 +15,6 @@ function parseMultipart(req) {
       keepExtensions: true,
       maxFileSize: 5 * 1024 * 1024,
     });
-
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);
       else resolve({ fields, files });
@@ -28,8 +27,8 @@ export default async function handler(req, res) {
 
   if (method === 'GET') {
     try {
-      const data = await kv.get('showcases');
-      return res.status(200).json(data || []);
+      const data = await readData();
+      return res.status(200).json(data);
     } catch (error) {
       console.error('Error fetching showcases:', error);
       return res.status(500).json({ error: 'Gagal mengambil data' });
@@ -54,17 +53,15 @@ export default async function handler(req, res) {
       if (files.image?.[0]) {
         const file = files.image[0];
         const ext = file.originalFilename?.split('.').pop() || 'png';
-        const filename = `${uuidv4()}.${ext}`;
-
+        const filename = `uploads/${uuidv4()}.${ext}`;
         const blob = await put(filename, file.filepath, {
           access: 'public',
           contentType: file.mimetype || 'image/png',
         });
-
         imageUrl = blob.url;
       }
 
-      const existingData = (await kv.get('showcases')) || [];
+      const existingData = await readData();
       const newItem = {
         id: uuidv4(),
         title,
@@ -78,7 +75,7 @@ export default async function handler(req, res) {
       };
 
       existingData.push(newItem);
-      await kv.set('showcases', existingData);
+      await writeData(existingData);
 
       return res.status(201).json(newItem);
     } catch (error) {

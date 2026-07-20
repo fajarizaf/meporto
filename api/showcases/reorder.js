@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { readData, writeData } from '../_lib/blob-db.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'PUT') {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'IDs array is required' });
     }
 
-    const data = (await kv.get('showcases')) || [];
+    const data = await readData();
     const reordered = [];
 
     for (const id of ids) {
@@ -20,14 +20,13 @@ export default async function handler(req, res) {
       if (item) reordered.push(item);
     }
 
-    // Add any items not in the ids array (safety net)
     for (const item of data) {
       if (!reordered.find((r) => r.id === item.id)) {
         reordered.push(item);
       }
     }
 
-    await kv.set('showcases', reordered);
+    await writeData(reordered);
     return res.status(200).json(reordered);
   } catch (error) {
     console.error('Error reordering showcases:', error);
