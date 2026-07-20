@@ -8,15 +8,9 @@ function Home() {
     return(
         <Fragment>
             <Slide />
-            <div className="main">
+            <div className="main" style={styles.content}>
                 <CardBio />
-            </div>
-            <div style={styles.box}>
-                <div className="main">
-                    <Timeline />   
-                </div>
-            </div>
-            <div className="main">
+                <Timeline />
                 <Student />
             </div>
         </Fragment>
@@ -24,11 +18,9 @@ function Home() {
 }
 
 const styles = {
-    main: {
-        lineHeight:'2px'
-    },
-    box: {
-        background:'#fff2df'
+    content: {
+        paddingTop: '40px',
+        paddingBottom: '80px'
     }
 }
 

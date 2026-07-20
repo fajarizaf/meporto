@@ -1,36 +1,40 @@
 import React, {Fragment} from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHashtag } from '@fortawesome/free-solid-svg-icons'
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 function Student(props) {
+  const educations = [
+    { school: 'University of Indraprasta PGRI', degree: 'Bachelor of Computer Science', period: '2009 — 2013' },
+    { school: 'Madrasah Aliyah Negeri 1 Kota Bekasi', degree: 'High School', period: '2007 — 2009' },
+    { school: 'SMP Negeri 21 Bekasi', degree: 'Middle School', period: '2005 — 2007' },
+    { school: 'SDN Perwira Negeri 03 Bekasi', degree: 'Elementary School', period: '1999 — 2005' }
+  ]
+
   return (
       <Fragment>
-        <br/>
-        <br/>
-        <h3 className="font-1" style={styles.hi}>
-            <FontAwesomeIcon style={styles.hastag} icon={faHashtag} />
-            Background Educations
-        </h3>
-        <br/>
-        <div style={styles.space}>
-            <p style={styles.school}>- University of Indraprasta PGRI</p>
-            <p style={styles.student}>Bachelor degree of computer science ( 2009 - 2013 )</p>
-            <p style={styles.school}>- Madrasah Aliyah Negeri 1 Kota Bekasi</p>
-            <p style={styles.student}>Hight School ( 2007 - 2009 )</p>
-            <p style={styles.school}>- SMP Negeri 21 Bekasi</p>
-            <p style={styles.student}>Middle School ( 2005 - 2007 )</p>
-            <p style={styles.school}>- SDN Perwira Negeri 03 Bekasi</p>
-            <p style={styles.student}>Elementary School ( 1999 - 2005 )</p> 
+        <div style={styles.section}>
+          <div style={styles.header}>
+            <div style={styles.iconWrap}>
+              <FontAwesomeIcon icon={faGraduationCap} style={styles.headerIcon} />
+            </div>
+            <div>
+              <h3 className="font-1" style={styles.hi}>Education</h3>
+              <p style={styles.headerSub}>Academic background</p>
+            </div>
+          </div>
+          <div style={styles.grid}>
+            {educations.map((edu, idx) => (
+              <div key={idx} style={styles.card}>
+                <div style={styles.cardHeader}>
+                  <span style={styles.period}>{edu.period}</span>
+                </div>
+                <h4 style={styles.school}>{edu.school}</h4>
+                <p style={styles.degree}>{edu.degree}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
       </Fragment>
   )
 }
@@ -38,36 +42,69 @@ function Student(props) {
 export default Student;
 
 const styles = {
-  flex: {
-    display:'flex',
-    justifyContent:'flex-start'
+  section: {
+    marginBottom: '40px'
+  },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '14px',
+    marginBottom: '32px'
+  },
+  iconWrap: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '44px',
+    height: '44px',
+    borderRadius: '12px',
+    background: 'var(--accent-4-subtle)',
+    border: '1px solid rgba(52, 211, 153, 0.2)'
+  },
+  headerIcon: {
+    fontSize: '18px',
+    color: 'var(--accent-4)'
+  },
+  headerSub: {
+    fontSize: '13px',
+    color: 'var(--text-muted)',
+    marginTop: '2px'
   },
   hi: {
-    color:'#1b1e17',
-    fontSize:'30'
+    color: 'var(--text-primary)',
+    fontSize: '1.25rem',
+    marginBottom: '0'
   },
-  hastag: {
-    fontSize:'28px',
-    color:'#ca3517',
-    marginRight:'15px',
-    marginLeft:'-40px'
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '12px'
   },
-  avatar: {
-    border:'8px solid #efefef',
+  card: {
+    padding: '20px',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--border)',
+    borderRadius: 'var(--radius-md)',
+    transition: 'var(--transition)'
   },
-  icon: {
-    marginRight:'15px',
-    fontSize:'22px',
+  cardHeader: {
+    marginBottom: '8px'
+  },
+  period: {
+    fontSize: '11px',
+    fontWeight: '600',
+    color: 'var(--accent-4)',
+    textTransform: 'uppercase',
+    letterSpacing: '1px'
   },
   school: {
-      fontSize:'16px',
-      fontWeight:'600'
+    fontSize: '0.95rem',
+    fontWeight: '600',
+    color: 'var(--text-primary)',
+    marginBottom: '4px'
   },
-  space: {
-      paddingLeft:'15px',
-  },
-  student: {
-      fontSize:'14px',
-      paddingLeft:'17px',
+  degree: {
+    fontSize: '0.82rem',
+    color: 'var(--text-muted)'
   }
 }

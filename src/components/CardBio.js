@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHashtag, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin, faInstagramSquare } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin, faInstagramSquare, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function CardBio(props) {
 
@@ -10,32 +10,37 @@ function CardBio(props) {
     window.open(url, "_blank")
   }
 
-  const toEmail = (url) => {
-    window.location.href(url)
-  }
-
   return (
       <Fragment>
-          <div style={{height:50}}></div>
-          <div className="cards">
-            <div className="row">
+          <div style={{height:40}}></div>
+          <div className="cards" style={styles.card}>
+            <div className="row" style={styles.left}>
+                <span style={styles.label}>About Me</span>
                 <h3 className="font-1" style={styles.hi}>
-                  <FontAwesomeIcon style={styles.hastag} icon={faHashtag} />
-                  Hi, My Name is Fajar
+                  Hi, I'm Fajar
                 </h3>
-                <p style={{color:'#1b1e17'}}>It has been eight years since he has been involved in the world of Information 
-                Technology. I am happy to be given the opportunity to work according to my passion. during my work I focused 
-                on research and development and learned everything about the IT world and like to try new things related to 
-                technology.
+                <p style={styles.bio}>
+                  With thirteen years in Information Technology, I've focused on research and development,
+                  continuously exploring the ever-evolving tech landscape. I thrive on building solutions
+                  and embracing new challenges in technology.
                 </p>
-                <div style={styles.flex}>
-                  <FontAwesomeIcon style={styles.icon} icon={faLinkedin} onClick={() => toLink('https://www.linkedin.com/in/fajar-riza-6199b6120/')} />
-                  <FontAwesomeIcon style={styles.icon} icon={faInstagramSquare} onClick={() => toLink('https://www.instagram.com/fajarizaf.id/')} />
-                  <FontAwesomeIcon style={styles.icon} icon={faEnvelopeOpen} onClick={() =>  window.location ='mailto:contact@fajariza.my.id'}  />
+                <div style={styles.socials}>
+                  <button type="button" onClick={() => toLink('https://github.com/fajarizaf')} style={styles.socialLink}>
+                    <FontAwesomeIcon icon={faGithub} style={styles.icon} />
+                  </button>
+                  <button type="button" onClick={() => toLink('https://www.linkedin.com/in/fajar-riza-6199b6120/')} style={styles.socialLink}>
+                    <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
+                  </button>
+                  <button type="button" onClick={() => toLink('https://www.instagram.com/fajarizaf.id/')} style={styles.socialLink}>
+                    <FontAwesomeIcon icon={faInstagramSquare} style={styles.icon} />
+                  </button>
+                  <button type="button" onClick={() => window.location='mailto:contact@fajariza.my.id'} style={styles.socialLink}>
+                    <FontAwesomeIcon icon={faEnvelopeOpen} style={styles.icon} />
+                  </button>
                 </div>
             </div>
-            <div className="row" style={{marginLeft:20,marginRight:20}}>
-              <img style={styles.avatar} className="avatar" src={process.env.PUBLIC_URL + '../assets/img/bio.jpg'} />
+            <div className="row" style={styles.right}>
+              <img style={styles.avatar} className="avatar" src={process.env.PUBLIC_URL + '../assets/img/bio.jpg'} alt="Fajar Riza" />
             </div>
           </div>
       </Fragment>
@@ -45,25 +50,78 @@ function CardBio(props) {
 export default CardBio;
 
 const styles = {
-  flex: {
-    display:'flex',
-    justifyContent:'flex-start'
+  card: {
+    background: 'var(--bg-card)',
+    border: '1px solid var(--border)',
+    borderRadius: 'var(--radius-lg)',
+    overflow: 'hidden',
+    transition: 'var(--transition)',
+    marginBottom: '20px'
+  },
+  left: {
+    flex: '1',
+    padding: '40px',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  },
+  right: {
+    width: '280px',
+    minHeight: '300px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'var(--bg-secondary)'
+  },
+  label: {
+    display: 'inline-block',
+    fontSize: '11px',
+    fontWeight: '600',
+    color: 'var(--accent)',
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    marginBottom: '12px',
+    padding: '5px 12px',
+    background: 'var(--accent-subtle)',
+    border: '1px solid var(--border-accent)',
+    borderRadius: '20px'
   },
   hi: {
-    color:'#1b1e17',
-    fontSize:'30'
+    color: 'var(--text-primary)',
+    fontSize: '1.5rem',
+    marginBottom: '12px',
+    fontFamily: "'Space Grotesk', sans-serif"
   },
-  hastag: {
-    fontSize:'28px',
-    color:'#ca3517',
-    marginRight:'15px',
-    marginLeft:'-40px'
+  bio: {
+    color: 'var(--text-secondary)',
+    fontSize: '14px',
+    lineHeight: '1.8',
+    marginBottom: '24px'
   },
-  avatar: {
-    border:'8px solid #efefef',
+  socials: {
+    display: 'flex',
+    gap: '8px'
+  },
+  socialLink: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '40px',
+    height: '40px',
+    borderRadius: '10px',
+    background: 'var(--bg-secondary)',
+    border: '1px solid var(--border)',
+    color: 'var(--text-secondary)',
+    transition: 'var(--transition)',
+    cursor: 'pointer'
   },
   icon: {
-    marginRight:'15px',
-    fontSize:'22px'
+    fontSize: '18px'
+  },
+  avatar: {
+    width: '200px',
+    height: '200px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+    border: '3px solid var(--border)',
+    transition: 'var(--transition)'
   }
 }

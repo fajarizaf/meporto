@@ -1,0 +1,110 @@
+[
+  {
+    "id": "187b622e-bdf9-4a63-b26d-118309af46b6",
+    "title": "Limputra HR — Human Resources Management System For Limputra Group",
+    "description": "Modern, HR and Payroll platform untuk Limputra Group yang dirancang untuk mengelola seluruh siklus sumber daya manusia — mulai dari rekrutmen, absensi, cuti, penilaian kinerja, hingga penggajian ",
+    "image": "/uploads/7a1dc6ba-078e-4bb5-894e-895ad9b8bdaf.png",
+    "link": "",
+    "linkType": "github",
+    "demoUrl": "http://103.155.250.26:8001",
+    "features": "<p>Limputra HR adalah aplikasi Human Resources Management System (HRMS) lengkap yang dikembangkan untuk memenuhi kebutuhan operasional HR PT Uninet. Sistem ini mencakup dua modul utama:</p><p>ModulFokusHRManajemen karyawan, absensi, cuti, rekrutmen, kinerja, pelatihanPayrollPenggajian, pajak, tunjangan, bonus, pesangon (gratuity)</p><h3><br></h3><h3>Visi</h3><p>Memberikan pengalaman HR digital yang mobile-first, real-time, dan terintegrasi — dari absensi di lapangan hingga slip gaji di genggaman tangan karyawan.</p><h2><br></h2><h2>Highlight Fitur</h2><p><br></p><h3><strong>Multi-level Approval (SPV → Mgr → HR)</strong></h3><p>Alur persetujuan berjenjang yang dapat dikonfigurasi per departement.</p><h3><br></h3><h3>Check-in dengan Foto &amp; GPS</h3><p>Verifikasi kehadiran berbasis lokasi dan foto selfie.</p><h3><br></h3><h3>Face Recognition (FaceNet512)</h3><p>Validasi wajah untuk perubahan foto profil &amp; akses.</p><p><br></p><h3>Fingerprint Clock in / out</h3><p>Integrasi absensi melalui mesin finger.</p><p><br></p><h3>Push Notification (OneSignal + In-App)</h3><p>Pemberitahuan real-time untuk approval &amp; reminder.</p><p><br></p><h3>Shift &amp; Roster Management</h3><p>Kalender shift bulanan dengan filter multi-dimensi.</p><p><br></p><h3>Payroll</h3><p>Dukungan perhitungan pajak &amp; pesangon sesuai regulasi lokal</p><p><br></p><h3>1. Modul HR (Human Resources)</h3><p><br></p><ul><li><strong>Onboarding</strong> : Employee Onboarding Template, Employee Onboarding, Employee Boarding Activity</li><li><strong>Separasi</strong> : Employee Separation Template, Employee Separation, Exit Interview</li><li><strong>Promosi Dan Mutasi </strong>: Employee Promotion, Employee Transfer</li><li><strong>Employee Grade</strong> : Employee Grade, Employment Type, Department Approver, Designation Skill, Identification Document Type</li></ul><p><br></p><h3>2. Absensi dan Shift Management</h3><p><br></p><p>Sistem absensi modern dengan dukungan check-in berbasis GPS dan foto, serta penjadwalan shift yang fleksibel.</p><p><br></p><ul><li><strong>Absensi</strong> : Attendance, Attendance Request, Employee Checkin, Employee Attendance Tool, Upload Attendance.</li><li><strong>Shift Type </strong>: Shift Type, Shift Assignment, Shift Assignment Tool, Shift Schedule, Shift Schedule Assignment, Shift Request, Shift Location.</li><li><strong>Lembur</strong> : Overtime Request, Overtime Log, Overtime Approval Log.</li></ul><p><br></p><h3>3. Management Cuti ( Leave Management )</h3><p><br></p><ul><li><strong>Master Cuti </strong>: Leave Type, Leave Period, Leave Policy, Leave Policy Detail, Leave Policy Assignment.</li><li><strong>Transaksi Cuti </strong>: Leave Application, Leave Allocation, Leave Encashment, Compensatory Leave Request.</li></ul><p><br></p><h3>4. Rekrutment ( Recruitment )</h3><p><br></p><p>Pipeline rekrutmen lengkap dari perencanaan kebutuhan hingga penawaran kerja.</p><ul><li><strong>Perencanaan</strong> : Staffing Plan, Staffing Plan Detail, Job Requisition.</li><li><strong>Lowongan</strong> : Job Opening, Job Applicant Source.</li><li><strong>Pelamar</strong> : Job Applicant, Interest.</li><li><strong>Interview</strong> : Interview Type, Interview Round, Interview, Interview Detail, Interview Feedback, Interviewer.</li></ul><p><br></p><h3>5. Management Klaim &amp; Advance</h3><p><br></p><ul><li>Expense : Expense Claim, Expense Claim Detail, Expense Claim Type, Expense Claim Account.</li><li>Advance : Employee Advance, Expense Claim Advance.</li><li>Taxes &amp; Charges : Expense Taxes and Charges.</li></ul><p><br></p><h3>6. Payroll</h3><p><br></p><ul><li><strong>Struktur Gaji </strong>: Salary Structure, Salary Structure Assignment, Bulk Salary Structure Assignment.</li><li><strong>Komponent Gaji</strong> : Salary Component, Salary Component Account.</li><li><strong>Slip Gaji</strong> : Salary Slip, Salary Detail, Salary Slip Leave, Salary Slip Loan, Salary Slip Timesheet.</li><li><strong>Payroll Run</strong> : Payroll Entry, Payroll Period, Payroll Period Date, Payroll Employee Detail, Payroll Settings.</li><li><strong>Penyesuaian</strong> : Additional Salary, Employee Incentive, Retention Bonus.</li></ul><p><br></p>",
+    "createdAt": "2026-07-20T14:47:53.184Z",
+    "updatedAt": "2026-07-20T17:13:47.725Z"
+  },
+  {
+    "id": "9e510471-a43f-49e1-ba6e-d054ff501151",
+    "title": "MettaDC - Data Center Customer Portal",
+    "description": "Portal manajemen data center terintegrasi untuk PT Metta Data Center, menyediakan Admin Panel dan Customer Portal dalam satu platform.",
+    "image": "/uploads/f349e54b-98d6-4af1-9092-c760296b32ae.png",
+    "link": "https://github.com/fajarizaf/portalmetta",
+    "linkType": "github",
+    "demoUrl": "http://202.145.0.38:3011",
+    "features": "<h2>Fitur Utama</h2><p><br></p><h3>1. Configurable Document Engine (ERP)</h3><p><br></p><p>Sistem manajemen dokumen dinamis yang dapat dikonfigurasi sepenuhnya melalui UI Admin. Mendukung berbagai jenis dokumen bisnis tanpa perubahan kode.</p><p><br></p><h3>2. Sales &amp; Order Management</h3><p>Fitur Ordering:</p><ul><li>Direct Order: Customer langsung memesan produk tertentu</li><li>Request Order: Customer mengajukan permintaan, menunggu approval admin</li><li>Multi-Item Order: Pemesanan beberapa item sekaligus</li><li>Auto SO: Quotation yang di-approve otomatis membuat Sales Order</li><li>Auto Subscription: SO yang di-approve otomatis membuat Subscription aktif</li></ul><p><br></p><h3>3. Billing &amp; Subscription Management</h3><p>Fitur Billing:</p><ul><li>Prorate calculation (harian) untuk bulan pertama/tidak genap</li><li>Billing cycle: Monthly, Quarterly, Annually</li><li>Setup fee (one-time charge) untuk instalasi</li><li>Bulk invoice generation untuk semua subscription aktif</li><li>Invoice PDF via Puppeteer</li><li>Email delivery otomatis ke customer</li><li>Currency formatting Rupiah (IDR)</li></ul><p><br></p><h3>4. Product Management</h3><p>Fitur Product:</p><ul><li>Hierarchical product groups (parent-child)</li><li>Pricing models:</li><li class=\"ql-indent-1\">Fixed: Harga tetap per varian</li><li class=\"ql-indent-1\">Discount: Diskon dari harga dasar</li><li class=\"ql-indent-1\">Tiered: Harga berdasarkan volume/kuantitas</li><li>Dynamic specification fields per produk</li><li>Order mode: Direct (langsung) atau Request (perlu approval)</li><li>Klasifikasi: FREE, ONETIME, RECURRING</li></ul><p><br></p><h3>5. Inventory &amp; Goods Management</h3><p>Fitur Inventory:</p><ul><li>Stock tracking per branch per produk</li><li>Goods In/Out dengan approval workflow</li><li>Audit trail lengkap (IN/OUT/ADJUSTMENT)</li><li>Real-time stock balance calculation</li><li>Tied ke Customer Portal untuk view</li></ul><p><br></p><h3>6. Data Center Infrastructure</h3><p>Fitur Infrastructure:</p><ul><li>Hirarki lokasi: Branch → Building → Floor → Room</li><li>Visual rack mapping (grid layout)</li><li>Rack status tracking (Available/Occupied)</li><li>Cross-connect management antar rack</li><li>Multi-branch support dengan branch switching</li></ul>",
+    "createdAt": "2026-07-20T15:14:57.145Z",
+    "updatedAt": "2026-07-20T16:15:56.969Z"
+  },
+  {
+    "id": "377e07e8-c512-412a-a9db-5781e8e152af",
+    "title": "Dashboard Uninet",
+    "description": "DashUninet adalah portal back-office CRM/ERP terintegrasi untuk pengelolaan layanan internet PT. Uninet Media Sakti. Aplikasi ini mengelola siklus hidup pelanggan lengkap mulai dari leads penjualan, order, aktivasi langganan (otomatis via Mikrotik RouterOS), penagihan invoice, hingga support ticket.",
+    "image": "/uploads/e8d11d23-1a87-4318-bb8a-29c0ba220e58.png",
+    "link": "https://github.com/fajarizaf/dashuninet",
+    "linkType": "github",
+    "createdAt": "2026-07-20T10:35:09.366Z",
+    "demoUrl": "https://staging.uninet.net.id/login",
+    "features": "<h2>Fitur Utama</h2><p><br></p><h3>Dashboard</h3><p><br></p><p>Dashboard Utama</p><p>Ringkasan performa bisnis secara real-time</p><p>Revenue Analisis pendapatan per periode</p><p>Subscription Statistik langganan aktif/nonaktif</p><p>Sales OrderPerforma penjualan &amp; progress order</p><h3><br></h3><h3>Modul Penjualan</h3><p><br></p><p>Pipeline</p><p>Manajemen leads &amp; prospek penjualan</p><p>Pembuatan Sales Order, approve, progress tracking orderSPK / BA Surat Perintah Kerja &amp; Berita Acara digital</p><p>Komisi Tracking</p><p>Komisi sales per order</p><p><br></p><h3>Modul Layanan</h3><p>Subscription Aktivasi, update, suspensi, deaktivasi langganan</p><p>Mikrotik Router Manajemen perangkat jaringan &amp; PPPoE secrets Auto JobAuto activate/suspend/deactivate via queue jobs</p><p><br></p><h3>Modul Keuangan</h3><p>Invoice Draft, publish, batch publish, reminder Pembayaran Upload bukti bayar, approval, payment tracking Deposit Topup , approval, auto-deduct balance</p><p>PromoKode promosi &amp; diskon</p><p><br></p><h3>Modul Pelanggan</h3><p>Customer Data pelanggan aktif, korporat, membership Downline Sistem referral &amp; jaringan pelanggan</p><p>Credit PointPoin loyalitas &amp; reward</p><p>redemption Loyalty Katalog reward &amp; pengelolaan hadiah</p><h3><br></h3><h3>Modul Support</h3><p>Ticket Layanan pelanggan (open/close/overdue)</p><p>Documentation CMS dokumentasi &amp; panduan pengguna</p><h3><br></h3><h3>Modul Lainnya</h3><p>Product Katalog produk, harga, billing cycle</p><p>Reseller Manajemen mitra/reseller</p><p>Site project &amp; area cakupan</p><p>BannerManajemen</p><p>Laporan ke Excel (Customer, Subscription, Invoice)</p>",
+    "updatedAt": "2026-07-20T16:23:08.640Z"
+  },
+  {
+    "id": "41c7843b-0e79-4a88-a702-3ecbf23fb2e7",
+    "title": "Peta Sebaran Unras",
+    "description": "Aplikasi monitoring dan visualisasi data unjuk rasa (demonstrasi) di seluruh provinsi Indonesia. Aplikasi ini menyediakan peta interaktif, dashboard statistik, dan panel admin untuk mengelola data aksi massa.\r\n",
+    "image": "/uploads/790e44aa-bd2a-4bcc-940f-38fd118ae66d.png",
+    "link": "https://github.com/fajarizaf/aksi-demo",
+    "linkType": "github",
+    "demoUrl": "http://103.153.42.77:5174/",
+    "features": "<h2>Fitur Utama</h2><p><br></p><ul><li>Peta Interaktif - Peta Indonesia berbasis Leaflet.js dengan penanda berwarna berdasarkan status aksi (Rencana/Berlangsung/Selesai)</li><li>Clustering Marker - Pengelompokan otomatis marker pada provinsi dengan banyak aksi</li><li>Panel Admin - CRUD data aksi, impor Excel/CSV, input manual</li><li>Dashboard Grafik - Visualisasi nilai tukar USD/IDR, harga BBM, dan harga bahan pokok</li><li>Autentikasi - Sistem login admin berbasis session cookie</li><li>Deduplikasi Data - Pencocokan otomatis saat impor untuk menghindari data ganda</li></ul>",
+    "createdAt": "2026-07-20T15:42:13.837Z",
+    "updatedAt": "2026-07-20T16:09:37.708Z"
+  },
+  {
+    "id": "1",
+    "title": "WHMCS Addons - ShopeePay",
+    "description": "ShopeePay payment gateway module integrated with WHMCS.",
+    "image": "/uploads/78f7a4a8-1508-408e-ab00-db6e38726b17.png",
+    "link": "https://github.com/fajarizaf/picovid",
+    "linkType": "github",
+    "demoUrl": "",
+    "features": "<h3>Fitur Utama :</h3><ul><li>Real-time COVID-19 data tracking</li><li>Interactive charts and statistics</li><li>Province-level data breakdown</li><li>Cross-platform (iOS &amp; Android)</li></ul>",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2026-07-20T16:56:44.105Z"
+  },
+  {
+    "id": "2",
+    "title": "WHMCS Addons - Bulk Services",
+    "description": "Hosting bulk services module integrated with WHMCS internal API.",
+    "image": "/uploads/9dc13302-aaf8-4b9d-8abf-7f3e5a4021a5.png",
+    "link": "https://github.com/fajarizaf/WHMCS-ADDON-BulkServices",
+    "linkType": "github",
+    "demoUrl": "",
+    "features": "<h3>Fitur Utama :</h3><ul><li>Bulk service management via WHMCS API</li><li>Automated provisioning</li><li>CSV import/export support</li></ul>",
+    "createdAt": "2024-01-02T00:00:00.000Z",
+    "updatedAt": "2026-07-20T16:10:23.353Z"
+  },
+  {
+    "id": "4",
+    "title": "Certification Issuance System",
+    "description": "Internal web application for managing and issuing certifications.",
+    "image": "/uploads/aab8921f-5d2d-47aa-82d4-c641f0a9f90e.png",
+    "link": "https://github.com/fajarizaf/app.asttatindo",
+    "linkType": "github",
+    "demoUrl": "",
+    "features": "<h3>Fitur Utama :</h3><ul><li>Certificate generation &amp; print</li><li>Participant data management</li><li>Verification system</li><li>Batch processing support</li></ul>",
+    "createdAt": "2024-01-04T00:00:00.000Z",
+    "updatedAt": "2026-07-20T17:00:18.327Z"
+  },
+  {
+    "id": "5",
+    "title": "WHMCS Addons - ShopeePay",
+    "description": "ShopeePay payment gateway module integrated with WHMCS.",
+    "image": "/uploads/89a237e8-e6c4-4ba4-afef-f971534b3012.png",
+    "link": "https://github.com/fajarizaf/WHMCS-ADDON-ShopeePay",
+    "linkType": "github",
+    "demoUrl": "",
+    "features": "<ul><li>ShopeePay payment integration</li><li>Automatic invoice reconciliation</li><li>Callback handling</li></ul>",
+    "createdAt": "2024-01-05T00:00:00.000Z",
+    "updatedAt": "2026-07-20T17:03:49.010Z"
+  },
+  {
+    "id": "6",
+    "title": "WHMCS Addons - Virtual Account",
+    "description": "Faspay Virtual Account payment module for WHMCS orders.",
+    "image": "/uploads/3fc396b1-c679-4701-a432-c3f2aa5ca0c6.png",
+    "link": "https://github.com/fajarizaf/WHMCS-ADDON-Virtual-Account-Payment",
+    "linkType": "github",
+    "demoUrl": "",
+    "features": "<h3>Fitur Utama :</h3><ul><li>Virtual Account generation</li><li>Multi-bank support</li><li>Real-time payment notification</li></ul>",
+    "createdAt": "2024-01-06T00:00:00.000Z",
+    "updatedAt": "2026-07-20T17:07:19.921Z"
+  }
+]

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
@@ -13,15 +13,13 @@ function Header() {
 
   return (
     <div className="header">
-        
         <div className='main' style={styles.main}>
             <div className="box-flex-between">
                 <div className="menu">
                     <Link className="logo" to="/">Fajar Riza Fauzi</Link>
-                    <Link className="item" to="/Showcase" style={styles.itm}>Showcase</Link>
-                    <Link className="item" to="#" onClick={() => toLink('http://www.penulis.site')} style={styles.itm}>Post</Link>
-                    <Link className="item" to="#" onClick={() => toLink('https://github.com/fajarizaf?tab=repositories')} style={styles.itm}>
-                    <FontAwesomeIcon icon={faGithub} style={styles.git} />
+                    <Link className="item" to="/Showcase">Showcase</Link>
+                    <Link className="item" to="#" onClick={() => toLink('https://github.com/fajarizaf?tab=repositories')}>
+                        <FontAwesomeIcon icon={faGithub} style={styles.git} />
                         Sources
                     </Link>
                 </div>
@@ -32,51 +30,31 @@ function Header() {
                 </div>
             </div>
         </div>
-          
     </div>
   );
 }
 
-var styles =  {
+var styles = {
     main: {
-      paddingBottom:'0px'  
-    },
-    itm: {
-        color:'#000'
-    },
-    p: {
-        padding:'0px',
-        margin:'0px',
-        marginBottom:'-5px'
-    },
-    link: {
-        color:'#009946'
+      paddingBottom:'0px'
     },
     btn: {
-        borderRadius: '6px',
-        background: '#ca3517',
-        border: 'none',
-        color: 'white',
-        padding: '20px',
-        paddingTop: '10px',
-        paddingBottom: '10px',
-        cursor: 'pointer',
-        margin: '0px',
-        width:'100%',
-        borderRadius:'35px',
-        display:'inline-flex',
-        justifyContent:'center',
-        lineHeight:'20px',
-        fontSize:'16px'
+        background: 'var(--accent)',
+        color: 'var(--bg-primary)',
+        padding: '8px 12px',
+        width: 'auto',
+        borderRadius: '10px',
+        fontSize: '16px',
+        lineHeight: '1'
     },
     icon: {
-        fontSize:'22px'
+        fontSize:'18px'
     },
     git: {
-        fontSize:'18px',
-        marginRight:'8px'
+        fontSize:'14px',
+        marginRight:'6px',
+        opacity: 0.7
     }
 }
-
 
 export default Header;

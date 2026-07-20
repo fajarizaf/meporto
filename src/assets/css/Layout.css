@@ -1,16 +1,24 @@
-
 .box-center-1 {
-    margin-left:auto;
-    margin-right:auto;
-    width: 400px;
-    padding-bottom: 100px;
-    margin-top:50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 80px;
+  margin-top: 40px;
 }
 
-
 .box-flex-between {
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .box-flex-between {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
