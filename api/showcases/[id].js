@@ -1,5 +1,4 @@
 import { randomUUID } from 'crypto';
-import { readFileSync } from 'fs';
 import { put, del } from '@vercel/blob';
 import { IncomingForm } from 'formidable';
 import { readData, writeData } from '../_lib/blob-db.js';
@@ -20,6 +19,15 @@ function parseMultipart(req) {
       if (err) reject(err);
       else resolve({ fields, files });
     });
+  });
+}
+
+function streamToBuffer(stream) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    stream.on('data', (chunk) => chunks.push(chunk));
+    stream.on('end', () => resolve(Buffer.concat(chunks)));
+    stream.on('error', reject);
   });
 }
 
@@ -68,8 +76,8 @@ export default async function handler(req, res) {
         const file = files.image[0];
         const ext = file.originalFilename?.split('.').pop() || 'png';
         const filename = `uploads/${randomUUID()}.${ext}`;
-        const fileBuffer = readFileSync(file.filepath);
-        const blob = await put(filename, fileBuffer, {
+        const buffer = await streamToBuffer(file);
+        const blob = await put(filename, buffer, {
           access: 'public',
           contentType: file.mimetype || 'image/png',
         });
