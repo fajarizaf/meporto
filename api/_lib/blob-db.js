@@ -1,16 +1,19 @@
-import { put, head, del } from '@vercel/blob';
+import { list, put, del } from '@vercel/blob';
 
 const DATA_KEY = 'showcases-data.json';
 
 export async function readData() {
   try {
-    const blob = await head(DATA_KEY);
-    const response = await fetch(blob.url);
+    const { blobs } = await list({ prefix: DATA_KEY });
+    const found = blobs.find(b => b.pathname === DATA_KEY);
+    if (!found) return [];
+
+    const response = await fetch(found.url);
     const text = await response.text();
     return JSON.parse(text);
   } catch (error) {
-    if (error.statusCode === 404) return [];
-    throw error;
+    console.error('readData error:', error);
+    return [];
   }
 }
 
@@ -19,14 +22,15 @@ export async function writeData(data) {
   const blob = await put(DATA_KEY, json, {
     access: 'public',
     contentType: 'application/json',
-    addRandomSuffix: false,
   });
   return blob;
 }
 
 export async function deleteDataFile() {
   try {
-    await del(DATA_KEY);
+    const { blobs } = await list({ prefix: DATA_KEY });
+    const found = blobs.find(b => b.pathname === DATA_KEY);
+    if (found) await del(found.url);
   } catch (error) {
     // ignore
   }
