@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrash, faGlobe, faImage, faExclamationTriangle, faArrowUp, faArrowDown, faGripVertical } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 const quillModules = {
   toolbar: [
@@ -134,6 +134,7 @@ function ShowcaseManage() {
 
   const getImgSrc = (image) => {
     if (!image) return null;
+    if (image.startsWith('http')) return image;
     if (image.startsWith('/uploads')) return `${API_URL.replace('/api', '')}${image}`;
     return `${process.env.PUBLIC_URL}${image}`;
   };

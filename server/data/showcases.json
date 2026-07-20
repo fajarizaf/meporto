@@ -39,13 +39,13 @@
     "id": "41c7843b-0e79-4a88-a702-3ecbf23fb2e7",
     "title": "Peta Sebaran Unras",
     "description": "Aplikasi monitoring dan visualisasi data unjuk rasa (demonstrasi) di seluruh provinsi Indonesia. Aplikasi ini menyediakan peta interaktif, dashboard statistik, dan panel admin untuk mengelola data aksi massa.\r\n",
-    "image": "/uploads/790e44aa-bd2a-4bcc-940f-38fd118ae66d.png",
+    "image": "/uploads/12bedcce-17c9-43d1-96dc-daf4587b2ccb.png",
     "link": "https://github.com/fajarizaf/aksi-demo",
     "linkType": "github",
     "demoUrl": "http://103.153.42.77:5174/",
     "features": "<h2>Fitur Utama</h2><p><br></p><ul><li>Peta Interaktif - Peta Indonesia berbasis Leaflet.js dengan penanda berwarna berdasarkan status aksi (Rencana/Berlangsung/Selesai)</li><li>Clustering Marker - Pengelompokan otomatis marker pada provinsi dengan banyak aksi</li><li>Panel Admin - CRUD data aksi, impor Excel/CSV, input manual</li><li>Dashboard Grafik - Visualisasi nilai tukar USD/IDR, harga BBM, dan harga bahan pokok</li><li>Autentikasi - Sistem login admin berbasis session cookie</li><li>Deduplikasi Data - Pencocokan otomatis saat impor untuk menghindari data ganda</li></ul>",
     "createdAt": "2026-07-20T15:42:13.837Z",
-    "updatedAt": "2026-07-20T16:09:37.708Z"
+    "updatedAt": "2026-07-20T17:24:48.595Z"
   },
   {
     "id": "1",

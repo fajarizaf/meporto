@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe, faChevronDown, faChevronUp, faExpand, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 const STATIC_PROJECTS = [
   { id: "1", title: "Mobile Apps - System Information Covid 19", description: "Mobile application built with React Native Expo for real-time COVID-19 data tracking.", image: "../assets/img/picovid.jpg", link: "https://github.com/fajarizaf/picovid", linkType: "github", demoUrl: "", features: "<ul><li>Real-time COVID-19 data tracking</li><li>Interactive charts and statistics</li><li>Province-level data breakdown</li><li>Cross-platform (iOS & Android)</li></ul>" },
@@ -66,9 +66,11 @@ function CardPorto() {
         const isExpanded = expandedId === project.id;
         const isHovered = hoveredId === project.id;
         const imgSrc = project.image
-          ? (project.image.startsWith('/uploads')
-              ? `${API_URL.replace('/api', '')}${project.image}`
-              : `${process.env.PUBLIC_URL}${project.image}`)
+          ? (project.image.startsWith('http')
+              ? project.image
+              : project.image.startsWith('/uploads')
+                ? `${API_URL.replace('/api', '')}${project.image}`
+                : `${process.env.PUBLIC_URL}${project.image}`)
           : null;
 
         return (
