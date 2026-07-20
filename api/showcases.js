@@ -1,5 +1,5 @@
+import { randomUUID } from 'crypto';
 import { put } from '@vercel/blob';
-import { v4 as uuidv4 } from 'uuid';
 import { IncomingForm } from 'formidable';
 import { readData, writeData } from './_lib/blob-db.js';
 
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
       if (files.image?.[0]) {
         const file = files.image[0];
         const ext = file.originalFilename?.split('.').pop() || 'png';
-        const filename = `uploads/${uuidv4()}.${ext}`;
+        const filename = `uploads/${randomUUID()}.${ext}`;
         const blob = await put(filename, file.filepath, {
           access: 'public',
           contentType: file.mimetype || 'image/png',
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
 
       const existingData = await readData();
       const newItem = {
-        id: uuidv4(),
+        id: randomUUID(),
         title,
         description,
         image: imageUrl,
