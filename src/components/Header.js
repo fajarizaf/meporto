@@ -18,7 +18,7 @@ function Header() {
                 <div className="menu">
                     <Link className="logo" to="/">Fajar Riza Fauzi</Link>
                     <Link className="item" to="/Showcase">Showcase</Link>
-                    <Link className="item" to="#" onClick={() => toLink('https://github.com/fajarizaf?tab=repositories')}>
+                    <Link className="item" to="#" onClick={() => toLink('https://github.com/fajarizaf')}>
                         <FontAwesomeIcon icon={faGithub} style={styles.git} />
                         Sources
                     </Link>
