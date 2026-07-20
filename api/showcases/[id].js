@@ -77,6 +77,11 @@ export default async function handler(req, res) {
         const ext = file.originalFilename?.split('.').pop() || 'png';
         const filename = `uploads/${randomUUID()}.${ext}`;
         const buffer = await streamToBuffer(file);
+
+        if (!buffer || buffer.length === 0) {
+          return res.status(400).json({ error: 'File kosong' });
+        }
+
         const blob = await put(filename, buffer, {
           access: 'public',
           contentType: file.mimetype || 'image/png',
@@ -100,7 +105,7 @@ export default async function handler(req, res) {
       return res.status(200).json(data[index]);
     } catch (error) {
       console.error('Error updating showcase:', error);
-      return res.status(500).json({ error: 'Gagal memperbarui data' });
+      return res.status(500).json({ error: 'Gagal memperbarui data', detail: error.message });
     }
   }
 
