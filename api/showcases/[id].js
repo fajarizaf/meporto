@@ -1,4 +1,5 @@
 import { randomUUID } from 'crypto';
+import { readFileSync } from 'fs';
 import { put, del } from '@vercel/blob';
 import { IncomingForm } from 'formidable';
 import { readData, writeData } from '../_lib/blob-db.js';
@@ -67,7 +68,8 @@ export default async function handler(req, res) {
         const file = files.image[0];
         const ext = file.originalFilename?.split('.').pop() || 'png';
         const filename = `uploads/${randomUUID()}.${ext}`;
-        const blob = await put(filename, file.filepath, {
+        const fileBuffer = readFileSync(file.filepath);
+        const blob = await put(filename, fileBuffer, {
           access: 'public',
           contentType: file.mimetype || 'image/png',
         });
