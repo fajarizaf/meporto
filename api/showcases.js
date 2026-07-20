@@ -1,34 +1,84 @@
 import { randomUUID } from 'crypto';
 import { put } from '@vercel/blob';
-import { IncomingForm } from 'formidable';
 import { readData, writeData } from './_lib/blob-db.js';
 
 export const config = {
   api: {
     bodyParser: false,
+    responseLimit: false,
   },
 };
 
-function parseMultipart(req) {
-  return new Promise((resolve, reject) => {
-    const form = new IncomingForm({
-      keepExtensions: true,
-      maxFileSize: 5 * 1024 * 1024,
-    });
-    form.parse(req, (err, fields, files) => {
-      if (err) reject(err);
-      else resolve({ fields, files });
-    });
-  });
+async function parseBody(req) {
+  const contentType = req.headers['content-type'] || '';
+
+  if (contentType.includes('application/json')) {
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    const body = JSON.parse(Buffer.concat(chunks).toString());
+    return { fields: body, files: {} };
+  }
+
+  if (contentType.includes('multipart/form-data')) {
+    return parseMultipart(req);
+  }
+
+  const chunks = [];
+  for await (const chunk of req) chunks.push(chunk);
+  return { fields: JSON.parse(Buffer.concat(chunks).toString()), files: {} };
 }
 
-function streamToBuffer(stream) {
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    stream.on('data', (chunk) => chunks.push(chunk));
-    stream.on('end', () => resolve(Buffer.concat(chunks)));
-    stream.on('error', reject);
-  });
+async function parseMultipart(req) {
+  const contentType = req.headers['content-type'] || '';
+  const boundaryMatch = contentType.match(/boundary=(.+)/);
+  if (!boundaryMatch) throw new Error('No boundary in content-type');
+
+  const boundary = boundaryMatch[1];
+  const chunks = [];
+  for await (const chunk of req) chunks.push(chunk);
+  const buffer = Buffer.concat(chunks);
+
+  const boundaryBuffer = Buffer.from('--' + boundary);
+  const fields = {};
+  const files = {};
+
+  let start = 0;
+  while (true) {
+    const idx = buffer.indexOf(boundaryBuffer, start);
+    if (idx === -1) break;
+
+    const nextIdx = buffer.indexOf(boundaryBuffer, idx + boundaryBuffer.length);
+    if (nextIdx === -1) break;
+
+    const part = buffer.slice(idx + boundaryBuffer.length, nextIdx);
+    const headerEnd = part.indexOf('\r\n\r\n');
+    if (headerEnd === -1) { start = nextIdx; continue; }
+
+    const headers = part.slice(0, headerEnd).toString();
+    const body = part.slice(headerEnd + 4, part.length - 2);
+
+    const nameMatch = headers.match(/name="([^"]+)"/);
+    const filenameMatch = headers.match(/filename="([^"]+)"/);
+    const typeMatch = headers.match(/Content-Type:\s*(.+)/i);
+
+    if (!nameMatch) { start = nextIdx; continue; }
+
+    const name = nameMatch[1];
+
+    if (filenameMatch) {
+      files[name] = [{
+        originalFilename: filenameMatch[1],
+        mimetype: typeMatch ? typeMatch[1].trim() : 'application/octet-stream',
+        buffer: body,
+      }];
+    } else {
+      fields[name] = body.toString();
+    }
+
+    start = nextIdx;
+  }
+
+  return { fields, files };
 }
 
 export default async function handler(req, res) {
@@ -39,35 +89,33 @@ export default async function handler(req, res) {
       const data = await readData();
       return res.status(200).json(data);
     } catch (error) {
-      console.error('Error fetching showcases:', error);
       return res.status(500).json({ error: 'Gagal mengambil data' });
     }
   }
 
   if (method === 'POST') {
     try {
-      const { fields, files } = await parseMultipart(req);
-      const get = (v) => Array.isArray(v) ? v[0] : v;
-      const title = get(fields.title);
-      const description = get(fields.description);
-      const link = get(fields.link) || '';
-      const linkType = get(fields.linkType) || 'github';
-      const demoUrl = get(fields.demoUrl) || '';
-      const features = get(fields.features) || '';
+      const { fields, files } = await parseBody(req);
+      const title = fields.title;
+      const description = fields.description;
+      const link = fields.link || '';
+      const linkType = fields.linkType || 'github';
+      const demoUrl = fields.demoUrl || '';
+      const features = fields.features || '';
 
       if (!title || !description) {
         return res.status(400).json({ error: 'Title dan description wajib diisi' });
       }
 
       let imageUrl = '';
-      if (files.image?.[0]) {
+      if (files.image && files.image[0]) {
         const file = files.image[0];
         const ext = file.originalFilename?.split('.').pop() || 'png';
         const filename = `uploads/${randomUUID()}.${ext}`;
-        const buffer = await streamToBuffer(file);
-        const blob = await put(filename, buffer, {
+
+        const blob = await put(filename, file.buffer, {
           access: 'public',
-          contentType: file.mimetype || 'image/png',
+          contentType: file.mimetype,
         });
         imageUrl = blob.url;
       }
@@ -90,8 +138,8 @@ export default async function handler(req, res) {
 
       return res.status(201).json(newItem);
     } catch (error) {
-      console.error('Error creating showcase:', error);
-      return res.status(500).json({ error: 'Gagal menyimpan data' });
+      console.error('POST error:', error);
+      return res.status(500).json({ error: 'Gagal menyimpan data', detail: error.message });
     }
   }
 
