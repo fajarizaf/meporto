@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin, faInstagramSquare, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function CardBio(props) {
 
@@ -30,9 +30,6 @@ function CardBio(props) {
                   </button>
                   <button type="button" onClick={() => toLink('https://www.linkedin.com/in/fajar-riza-6199b6120/')} style={styles.socialLink}>
                     <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
-                  </button>
-                  <button type="button" onClick={() => toLink('https://www.instagram.com/fajarizaf.id/')} style={styles.socialLink}>
-                    <FontAwesomeIcon icon={faInstagramSquare} style={styles.icon} />
                   </button>
                   <button type="button" onClick={() => window.location='mailto:contact@fajariza.my.id'} style={styles.socialLink}>
                     <FontAwesomeIcon icon={faEnvelopeOpen} style={styles.icon} />
