@@ -8,7 +8,8 @@ function Skills() {
         { name: 'PHP Native with OOP', level: 90 },
         { name: 'Laravel & CodeIgniter', level: 85 },
         { name: 'Node.js with Express', level: 80 },
-        { name: 'RESTful APIs (Node.js, Lumen)', level: 82 }
+        { name: 'RESTful APIs (Node.js, Lumen)', level: 82 },
+        { name: 'Microservices Architecture', level: 70 }
     ]
 
     const frontendSkills = [
@@ -16,7 +17,8 @@ function Skills() {
         { name: 'CSS — Bootstrap, Tailwind, Semantic UI', level: 88 },
         { name: 'JavaScript ES6+', level: 85 },
         { name: 'React JS', level: 80 },
-        { name: 'React Native', level: 75 }
+        { name: 'React Native', level: 75 },
+        { name: 'Next.js', level: 72 }
     ]
 
     return (
