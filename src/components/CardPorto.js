@@ -108,7 +108,7 @@ function CardPorto() {
               <div style={styles.bodyTop}>
                 <div style={{ ...styles.accentDot, background: a.accent }} />
                 <span style={{ ...styles.accentLabel, color: a.accent }}>
-                  {project.linkType === 'github' ? 'Open Source' : 'Web App'}
+                  {project.linkType === 'github' ? 'Platform' : 'Web App'}
                 </span>
               </div>
               <h3 style={styles.title}>{project.title}</h3>
